@@ -4,6 +4,8 @@ export default function ProductsContainer({
   products,
   handleAddQuantity,
   handleRemoveQuantity,
+  handleOnDelete,
+  handleOnEdit,
   handleAddToCart,
   productQuantity,
 }) {
@@ -11,13 +13,15 @@ export default function ProductsContainer({
     <div className="ProductsContainer">
       {products.map((product) => (
         <ProductCard
-          key={product.id}
+          key={product._id}
           {...product}
           handleAddQuantity={handleAddQuantity}
           handleRemoveQuantity={handleRemoveQuantity}
+          handleOnDelete={handleOnDelete}
+          handleOnEdit={handleOnEdit}
           handleAddToCart={handleAddToCart}
           productQuantity={
-            productQuantity.find((p) => p.id === product.id).quantity
+            productQuantity.find((p) => p._id === product._id)?.quantity
           }
         />
       ))}
