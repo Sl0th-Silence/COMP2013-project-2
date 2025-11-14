@@ -81,7 +81,6 @@ export default function GroceriesAppContainer() {
       } else {
         await axios.post("http://localhost:3000/products", formData)
         .then((response) => {setPostResponse(response.data.message)})
-        console.log(response)
         .then(() => {
           handleResetForm();
         });
